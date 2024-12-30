@@ -7,6 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// typo intentionally to skip initalization, mwuehehe
 func initz() {
 	initializers.LoadEnvVars()
 	initializers.ConnectToDb()
