@@ -28,9 +28,11 @@ func Create(c *gin.Context) {
 }
 
 func GetAll(c *gin.Context) {
-	var students []models.Student
-	initializers.DB.Find(&students)
-	c.JSON(200, gin.H{"students": students})
+	// var students []models.Student
+	// initializers.DB.Find(&students)
+	res := Data{ Message: "Retrieve all student"}
+	// c.JSON(200, gin.H{"students": students})
+	c.JSON(200, res)
 }
 
 func GetOne(c *gin.Context) {

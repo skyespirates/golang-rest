@@ -1,13 +1,13 @@
 package main
 
 import (
-	"restapi/controllers"
 	"restapi/initializers"
+	"restapi/routes"
 
 	"github.com/gin-gonic/gin"
 )
 
-func init() {
+func initz() {
 	initializers.LoadEnvVars()
 	initializers.ConnectToDb()
 }
@@ -21,13 +21,8 @@ func main() {
 		c.JSON(200, gin.H{"message": "Hello World!"})
 	})
 	
-	// students routes
-	r.POST("/students", controllers.Create)
-	r.GET("/students", controllers.GetAll)
-	r.GET("/students/:id", controllers.GetOne)
-	r.PUT("/students/:id", controllers.Update)
-	r.DELETE("/students/:id", controllers.Delete)
 
+	routes.SetupRoutes(r)
 
-	r.Run()
+	r.Run(":3000")
 }
